@@ -48,7 +48,7 @@ module.exports = {
 
                 if (!user) {
                     errors.username = 'user not found'
-                    throw new AuthenticationError('user not found')
+                    throw new UserInputError('user not found', { errors })
                 }
 
 
@@ -57,7 +57,7 @@ module.exports = {
 
                 if (!correctPassword) {
                     errors.password = 'password is incorrect'
-                    throw new AuthenticationError('password is incorrect')
+                    throw new UserInputError('password is incorrect', { errors })
                 }
 
                 const token = jwt.sign({
