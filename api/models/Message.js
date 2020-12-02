@@ -1,8 +1,10 @@
-'use strict';
+'use strict'
+
 const {
   Model
-} = require('sequelize');
+} = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
+
   class Message extends Model {
     /**
      * Helper method for defining associations.
@@ -12,15 +14,29 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   Message.init({
-    content: DataTypes.STRING,
-    uuid: DataTypes.UUID,
-    from: DataTypes.STRING,
-    to: DataTypes.STRING
+    content: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    uuid: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: DataTypes.UUIDV4,
+    },
+    from: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    to: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Message',
+    tableName: 'messages'
   });
   return Message;
 };
