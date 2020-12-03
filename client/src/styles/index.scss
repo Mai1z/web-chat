@@ -18,3 +18,15 @@ body {
     background-color: lightgoldenrodyellow;
   }
 }
+
+.messages-block {
+  height: 500px;
+  overflow-y: auto;
+}
+
+.message-input {
+  &::placeholder {
+    color: rgba(0,0,0,0.5);
+  }
+
+}

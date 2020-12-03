@@ -3,6 +3,7 @@ import { gql, useQuery } from '@apollo/client'
 import {Col, Image} from 'react-bootstrap'
 import { useMessageDispatch, useMessageState } from '../../context/message'
 import classNames from 'classnames'
+import {type} from "os";
 
 const GET_USERS = gql`
     query getUsers {
@@ -15,10 +16,11 @@ const GET_USERS = gql`
     }
 `
 
-export const Users:React.FC<{ setSelectedUser: any, selectedUser: string | null }> = ({ setSelectedUser, selectedUser }) => {
+export const Users:React.FC = () => {
 
     const dispatch = useMessageDispatch()
     const { users } = useMessageState()
+    const selectedUser = users?.find((u: any) => u.selected === true)?.username
 
     const { loading } = useQuery(GET_USERS, {
         onCompleted: data => dispatch({ type: 'SET_USERS', payload: data.getUsers }),
@@ -38,7 +40,7 @@ export const Users:React.FC<{ setSelectedUser: any, selectedUser: string | null 
                 role='button'
                 className={classNames('d-flex p-3 user-block', {'active': selected})}
                 key={user.username}
-                onClick={() => setSelectedUser(user.username)}
+                onClick={() => dispatch({type: 'SET_SELECTED_USER', payload: user.username})}
             >
                 <Image
                     src={user.imageUrl ? user.imageUrl : 'https://images.unsplash.com/photo-1493106819501-66d381c466f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'}

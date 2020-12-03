@@ -9,11 +9,11 @@ export const Home = (props: { history: string[] }) => {
 
     const dispatch = useAuthDispatch()
 
-    const [selectedUser, setSelectedUser] = useState(null)
+
 
     const logout = () => {
         dispatch({type: 'LOGOUT'})
-        props.history.push('/login')
+        window.location.href = '/login'
     }
 
     return (
@@ -28,8 +28,8 @@ export const Home = (props: { history: string[] }) => {
                 <Button variant='link' onClick={logout}>Logout</Button>
             </Row>
             <Row>
-                <Users setSelectedUser={setSelectedUser} selectedUser={selectedUser}/>
-                <Messages selectedUser={selectedUser}/>
+                <Users />
+                <Messages />
             </Row>
         </>
     )
