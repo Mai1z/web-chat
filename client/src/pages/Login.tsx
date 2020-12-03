@@ -33,7 +33,7 @@ export const Login = (props: { history: string[] }) => {
         },
         onCompleted(data) {
             dispatch({ type: 'LOGIN', payload: data.login})
-            props.history.push('/')
+            window.location.href ='/'
         }
     })
 
