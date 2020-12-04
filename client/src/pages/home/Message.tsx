@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react'
-import {useAuthState} from '../../context/auth'
+import { useAuthState } from '../../context/auth'
 import classNames from 'classnames'
 
 export const Message:React.FC<{message:{uuid: string, content: ReactNode, from:string}}> = ({message}) => {

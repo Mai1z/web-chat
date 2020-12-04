@@ -3,10 +3,11 @@ version: "3.7"
 services:
   db:
     image: postgres
+    container_name: webchat
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
-      POSTGRES_DB: postgres
+      POSTGRES_DB: chat
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:

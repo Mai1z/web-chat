@@ -56,15 +56,15 @@ export const Messages:React.FC = () => {
     let selectedChatMarkup
 
     if (!messages && !messagesLoading) {
-        selectedChatMarkup = <p>Select a friend</p>
+        selectedChatMarkup = <p className='text-center'>Select a friend</p>
     } else if (messagesLoading) {
-        selectedChatMarkup = <p>Loading..</p>
+        selectedChatMarkup = <p className='text-center'>Loading..</p>
     } else if (messages.length > 0) {
         selectedChatMarkup = messages.map((message: { uuid: string; content: React.ReactNode, from: string }) => (
             <Message key={message.uuid} message={message}/>
         ))
     } else if (messages.length === 0) {
-        selectedChatMarkup = <p>You now in the chat!</p>
+        selectedChatMarkup = <p className='text-center'>You now in the chat!</p>
     }
 
     const submitMessage = (e:any) => {
@@ -79,7 +79,7 @@ export const Messages:React.FC = () => {
     }
 
     return (
-        <Col xs={8}>
+        <Col xs={8} className='messages-control'>
             <div className='messages-block d-flex flex-column-reverse'>
                 {selectedChatMarkup}
             </div>

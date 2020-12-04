@@ -49,7 +49,7 @@ export const Register = (props: { history: string[] }) => {
                 <Form onSubmit={submitRegisterForm}>
                     <Form.Group>
                         <Form.Label className={errors.username && 'text-danger'}>
-                            {errors.username ?? 'User name'}
+                            {errors.username ? errors.username : 'User name'}
                         </Form.Label>
                         <Form.Control
                             type='text'
@@ -60,7 +60,7 @@ export const Register = (props: { history: string[] }) => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label className={errors.email && 'text-danger'}>
-                            {errors.email ?? 'Email'}
+                            {errors.email ? errors.email : 'Email'}
                         </Form.Label>
                         <Form.Control
                             type='email'
@@ -72,7 +72,7 @@ export const Register = (props: { history: string[] }) => {
 
                     <Form.Group>
                         <Form.Label className={errors.password && 'text-danger'}>
-                            {errors.password ?? 'Password'}
+                            {errors.password ? errors.password : 'Password'}
                         </Form.Label>
                         <Form.Control
                             type='password'
@@ -83,7 +83,7 @@ export const Register = (props: { history: string[] }) => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Label className={errors.confirmPassword && 'text-danger'}>
-                            {errors.confirmPassword ?? 'Confirm password'}
+                            {errors.confirmPassword ? errors.confirmPassword : 'Confirm password'}
                         </Form.Label>
                         <Form.Control
                             type='password'

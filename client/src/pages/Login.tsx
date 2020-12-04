@@ -49,7 +49,7 @@ export const Login = (props: { history: string[] }) => {
                 <Form onSubmit={submitLoginForm}>
                     <Form.Group>
                         <Form.Label className={errors.username && 'text-danger'}>
-                            {errors.username ?? 'User name'}
+                            {errors.username ? errors.username : 'User name'}
                         </Form.Label>
                         <Form.Control
                             type="text"
@@ -61,7 +61,7 @@ export const Login = (props: { history: string[] }) => {
 
                     <Form.Group>
                         <Form.Label className={errors.password && 'text-danger'}>
-                            {errors.password ?? 'Password'}
+                            {errors.password ? errors.password : 'Password'}
                         </Form.Label>
                         <Form.Control
                             type="password"

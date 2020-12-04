@@ -65,7 +65,7 @@ const messageReducer = (state: {users: []}, action: { type: string; payload: { t
 }
 
 export const MessageProvider:React.FC<{children: object}> = ({children}) => {
-    const [state, dispatch] = useReducer<any>(messageReducer, { users: null })
+    const [state, dispatch] = useReducer(messageReducer, { users: null })
     return (
         <MessageDispatchContext.Provider value={dispatch}>
             <MessageStateContext.Provider value={state}>

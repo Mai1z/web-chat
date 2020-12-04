@@ -10,6 +10,16 @@ body {
   padding-top: 50px;
 }
 
+.chat-block {
+  height: 600px;
+  border: 2px solid $gray-600
+}
+
+.control-block {
+  border: 2px solid $gray-600;
+  border-bottom: 1px solid white;
+}
+
 .user-block {
   &:hover {
     background-color: lightgoldenrodyellow;
@@ -19,9 +29,24 @@ body {
   }
 }
 
-.messages-block {
-  height: 500px;
+.messages-control {
+  height: 100%;
+}
+
+.messages-block, .users-block {
+  height: 530px;
   overflow-y: auto;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+.users-block {
+  height: 100%;
 }
 
 .message-input {

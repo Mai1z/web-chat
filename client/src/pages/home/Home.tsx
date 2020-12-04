@@ -5,7 +5,7 @@ import { useAuthDispatch, useAuthState } from '../../context/auth'
 import { Users } from './Users'
 import { Messages } from './Messages'
 import { useSubscription, gql } from '@apollo/client'
-import { useMessageDispatch } from "../../context/message";
+import { useMessageDispatch } from '../../context/message'
 
 const NEW_MESSAGE = gql`
     subscription newMessage{
@@ -45,7 +45,7 @@ export const Home = (props: { history: string[] }) => {
 
     return (
         <>
-            <Row className='justify-content-around'>
+            <Row className='justify-content-around control-block'>
                 <Link to='/login'>
                     <Button variant='link'>Login</Button>
                 </Link>
@@ -54,7 +54,7 @@ export const Home = (props: { history: string[] }) => {
                 </Link>
                 <Button variant='link' onClick={logout}>Logout</Button>
             </Row>
-            <Row>
+            <Row className='chat-block'>
                 <Users />
                 <Messages />
             </Row>

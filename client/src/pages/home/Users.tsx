@@ -3,7 +3,6 @@ import { gql, useQuery } from '@apollo/client'
 import {Col, Image} from 'react-bootstrap'
 import { useMessageDispatch, useMessageState } from '../../context/message'
 import classNames from 'classnames'
-import {type} from "os";
 
 const GET_USERS = gql`
     query getUsers {
@@ -58,7 +57,7 @@ export const Users:React.FC = () => {
         })
     }
     return (
-        <Col xs={4} className='p-0 bg-secondary'>
+        <Col xs={4} className='users-block p-0 bg-secondary'>
             {usersMarkup}
         </Col>
     )
